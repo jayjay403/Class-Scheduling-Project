@@ -5,14 +5,16 @@ import { join } from 'path';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
-import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
-    ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
       type: 'mysql',
-      url: process.env.MYSQL_URL || process.env.MYSQL_PUBLIC_URL,
+      host: process.env.MYSQLHOST,
+      port: parseInt(process.env.MYSQLPORT ?? '3306'),
+      username: process.env.MYSQLUSER,
+      password: process.env.MYSQLPASSWORD,
+      database: process.env.MYSQLDATABASE,
       autoLoadEntities: true,
       synchronize: true,
     }),
