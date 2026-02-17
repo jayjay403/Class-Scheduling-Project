@@ -1,16 +1,13 @@
-// user.entity.ts
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity('users') // 'users' is the table name
+@Entity()
 export class Users {
-  
-  @PrimaryGeneratedColumn() // Auto-increment ID
-  id: number;
+  @PrimaryGeneratedColumn()
+  id: number;
 
-  @Column() // Simple column
-  name: string;
+  @Column()
+  name: string;
 
-  @Column()
-  email: string;
-
+  @Column()
+  email: string;
 }
