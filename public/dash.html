@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{
+    margin:0;
+    font-family: 'Times New Roman', Times, serif;
+    background: linear-gradient(180deg, #f6f7f9, #a9aeb3);
+}
+
+
+.container{
+    display:flex;
+    height:100vh;
+}
+
+
+
+.sidebar{
+    width:230px;
+    height: 100%;
+    background:#115e59;
+    color:white;
+    padding-top:30px;
+    height: 690px;
+}
+
+.sidebar h2{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.sidebar a{
+    display:block;
+    padding:15px 25px;
+    color:white;
+    text-decoration:none;
+    font-size:17px;
+}
+
+.sidebar a:hover{
+    background:#0d4b47;
+}
+
+.main{
+    flex:1;
+    padding:30px;
+}
+
+.header{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    margin-bottom:30px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    position:relative;
+}
+
+.date{
+    position:absolute;
+    right:20px;
+    top:20px;
+    font-size:15px;
+    color:gray;
+}
+
+.cards{
+    display:flex;
+    gap:20px;
+    margin-bottom:30px;
+}
+
+.card{
+    flex:1;
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.schedule{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th{
+    background:#115e59;
+    color:white;
+    padding:12px;
+}
+
+td{
+    padding:12px;
+    text-align:center;
+}
+
+tr:nth-child(even){
+    background:#f6f7f9;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="sidebar">
+        <h2>Student Portal</h2>
+        <a href="dash.html">Dashboard</a>
+        <a href="sched.html">My Schedule</a>
+        <a href="class.html">My Classes</a>
+        <a href="index.html">Logout</a>
+    </div>
+
+
+
+<div class="main">
+
+<div class="header">
+    <span class="date" id="todayDate"></span>
+    <h1>Welcome, Cenphilian!</h1>
+    <p>Here is your scheduling overview.</p>
+</div>
+
+
+
+<div class="cards">
+
+<div class="card">
+    <h3>Total Subjects</h3>
+    <h1>6</h1>
+</div>
+
+<div class="card">
+    <h3>Classes Today</h3>
+    <h1>3</h1>
+</div>
+
+<div class="card">
+    <h3>Units Enrolled</h3>
+    <h1>18</h1>
+</div>
+
+</div>
+
+
+
+<div class="schedule">
+<h2>Today's Schedule</h2>
+
+<table>
+<tr>
+<th>Subject</th>
+<th>Time</th>
+<th>Room</th>
+<th>Instructor</th>
+</tr>
+
+<tr>
+<td>Programming</td>
+<td>8:00 AM - 10:00 AM</td>
+<td>Lab 2</td>
+<td>Mr. Cruz</td>
+</tr>
+
+<tr>
+<td>Database</td>
+<td>10:30 AM - 12:00 PM</td>
+<td>Room 101</td>
+<td>Ms. Santos</td>
+</tr>
+
+<tr>
+<td>Web Development</td>
+<td>1:00 PM - 3:00 PM</td>
+<td>Lab 1</td>
+<td>Mr. Reyes</td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+</div>
+
+
+
+<script>
+  if (localStorage.getItem('loggedIn') !== 'true') {
+      alert('Please log in first!');
+      location.href = 'index.html';
+  }
+const today = new Date();
+const options = { weekday:'long', year:'numeric', month:'long', day:'numeric' };
+document.getElementById("todayDate").innerText =
+    today.toLocaleDateString('en-US', options);
+</script>
+
+</body>
+</html>
